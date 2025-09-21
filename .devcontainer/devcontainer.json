@@ -1,0 +1,48 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/docker-existing-dockerfile
+{
+    "name": "Chaski",
+  
+    // Sets the run context to one level up instead of the .devcontainer folder.
+    "context": ".",
+  
+    // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+    "dockerFile": "./Dockerfile",
+  
+    // Install any necessary extensions.
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "BazelBuild.vscode-bazel",
+          "EditorConfig.EditorConfig",
+          "SonarSource.sonarlint-vscode",
+          "golang.Go",
+          "ms-azuretools.vscode-docker",
+          "ms-kubernetes-tools.vscode-kubernetes-tools",
+          "ms-python.python",
+          "trunk.io",
+          "vscjava.vscode-java-pack"
+        ]
+      }
+    },
+  
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [4321, 5432, 8233, 8080],
+
+    // Install Homebrew and packages after container creation
+    "postCreateCommand": "/workspaces/chaski/.devcontainer/setup.sh",
+  
+    // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+    "runArgs": [
+      "--privileged",
+      "--network=host",
+      "--cap-add=SYS_PTRACE",
+      "--security-opt", "seccomp=unconfined"
+    ],
+  
+    // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+    "mounts": ["source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"],
+  
+    // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "coder"
+  }

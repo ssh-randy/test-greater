@@ -1,5 +1,4 @@
-# FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/base:ubuntu
-FROM --platform=linux/arm64 mcr.microsoft.com/devcontainers/base:ubuntu
+FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/base:ubuntu
 
 # Set shell with pipefail for safer pipe operations
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

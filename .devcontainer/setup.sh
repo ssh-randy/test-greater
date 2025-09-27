@@ -23,7 +23,7 @@ echo "📚 Installing development packages..."
 # Setup default .zshrc
 echo "⚙️  Setting up default .zshrc..."
 if [[ ! -f /home/coder/.zshrc ]]; then
-    cp /workspaces/chaski/.devcontainer/.zshrc /home/coder/.zshrc
+    cp /workspaces/test-greater/.devcontainer/.zshrc /home/coder/.zshrc
     echo "✅ Default .zshrc copied to /home/coder/.zshrc"
 else
     echo "ℹ️  .zshrc already exists, skipping..."
@@ -31,11 +31,11 @@ fi
 
 # Setup Bazel remote build configuration
 echo "⚙️  Setting up Bazel remote build configuration..."
-if [[ -d "/workspaces/chaski" ]]; then
-    echo "build --config=remote" >/workspaces/chaski/user.bazelrc
-    echo "✅ Created /workspaces/chaski/user.bazelrc with remote build config"
+if [[ -d "/workspaces/test-greater" ]]; then
+    echo "build --config=remote" >/workspaces/test-greater/user.bazelrc
+    echo "✅ Created /workspaces/test-greater/user.bazelrc with remote build config"
 else
-    echo "ℹ️  Chaski repository not found, skipping Bazel config..."
+    echo "ℹ️  test-greater repository not found, skipping Bazel config..."
 fi
 
 # update /workspaces to be writable by coder user

@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/docker-existing-dockerfile
 {
-    "name": "Chaski",
+    "name": "test-greater",
   
     // Sets the run context to one level up instead of the .devcontainer folder.
     "context": ".",
@@ -30,7 +30,7 @@
     "forwardPorts": [4321, 5432, 8233, 8080],
 
     // Install Homebrew and packages after container creation
-    "postCreateCommand": "/workspaces/chaski/.devcontainer/setup.sh",
+    "postCreateCommand": "/workspaces/test-greater/.devcontainer/setup.sh",
   
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
     "runArgs": [

@@ -47,10 +47,10 @@ data "coder_parameter" "repo" {
   mutable      = true
   name         = "repo"
   option {
-    name        = "Chaski"
+    name        = "test-greater"
     icon        = "/icon/code.svg"
     description = "The distribution OS"
-    value       = "https://github.com/greaterindustries/chaski"
+    value       = "https://github.com/greaterindustries/test-greater"
   }
   option {
     name        = "eng-onboarding"
@@ -92,7 +92,7 @@ locals {
     "ENVBUILDER_GIT_URL" : local.repo_url,
     "ENVBUILDER_GIT_USERNAME" : data.coder_external_auth.primary-github.access_token,
     "ENVBUILDER_GIT_PASSWORD" : "",
-    "ENVBUILDER_WORKSPACE_FOLDER" : "/workspaces/chaski",
+    "ENVBUILDER_WORKSPACE_FOLDER" : "/workspaces/test-greater",
     "ENVBUILDER_CACHE_REPO" : var.cache_repo,
     "CODER_AGENT_TOKEN" : coder_agent.main.token,
     # Use the docker gateway if the access URL is 127.0.0.1
@@ -330,11 +330,11 @@ EOF
     echo "Contents of /workspaces/:"
     ls -la /workspaces/
     echo ""
-    echo "Contents of /workspaces/chaski/ (if it exists):"
-    ls -la /workspaces/chaski/ 2>/dev/null || echo "Directory does not exist"
+    echo "Contents of /workspaces/test-greater/ (if it exists):"
+    ls -la /workspaces/test-greater/ 2>/dev/null || echo "Directory does not exist"
     echo ""
-    echo "Looking for .devcontainer in /workspaces/chaski/:"
-    find /workspaces/chaski/ -name ".devcontainer" -type d 2>/dev/null || echo "No .devcontainer directory found"
+    echo "Looking for .devcontainer in /workspaces/test-greater/:"
+    find /workspaces/test-greater/ -name ".devcontainer" -type d 2>/dev/null || echo "No .devcontainer directory found"
 
     # Debug Docker socket permissions
     echo "=== Docker Socket Debugging ==="
@@ -352,7 +352,7 @@ EOF
 
     # Add any commands that should be executed at workspace startup (e.g install requirements, start a program, etc) here
   EOT
-  dir            = "/workspaces/chaski"
+  dir            = "/workspaces/test-greater"
 
   # These environment variables allow you to make Git commits right away after creating a
   # workspace. Note that they take precedence over configuration defined in ~/.gitconfig!
